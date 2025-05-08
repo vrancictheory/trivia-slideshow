@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Trivia Slideshow</title>
     <style>
       body {
@@ -14,17 +14,13 @@
       }
     </style>
     <script>
-      // Adjust this array based on your actual slide order:
-      // For example: [30000, 5000, 30000, 5000] = Q1(30s), A1(5s), Q2(30s), A2(5s), etc.
-      const slideTimings = [
-        30000, // Q1
-        5000,  // A1
-        30000, // Q2
-        5000,  // A2
-        30000, // Q3
-        5000   // A3
-        // Add more as needed
-      ];
+      const slideTimings = [5000]; // Title slide (5s)
+
+      // 43 Q&A pairs = 86 slides after the title
+      for (let i = 0; i < 43; i++) {
+        slideTimings.push(30000); // Question (30s)
+        slideTimings.push(5000);  // Answer (5s)
+      }
 
       let index = 1;
 
@@ -38,7 +34,6 @@
       }
 
       window.onload = () => {
-        // Wait for the first duration (index 0) before advancing
         setTimeout(nextSlide, slideTimings[0]);
       };
     </script>
@@ -51,8 +46,6 @@
       width="960"
       height="569"
       allowfullscreen
-      mozallowfullscreen
-      webkitallowfullscreen
     ></iframe>
   </body>
 </html>
